@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 .env  
 .env.local 
+
+# Raw data files — outputs of diagnostic scripts, never committed
+scripts/*.json
