@@ -126,3 +126,11 @@ create policy "Public read access" on sun_windows for select using (true);
 grant select on pubs to anon;
 grant select on buildings to anon;
 grant select on sun_windows to anon;
+
+-- Grant full access to the service_role for all tables
+-- Required for ingestion scripts and scheduled jobs that use the service key.
+-- Supabase applies this automatically when tables are created via the UI,
+-- but NOT when schema is applied via raw SQL — so we set it explicitly here.
+grant all on pubs        to service_role;
+grant all on buildings   to service_role;
+grant all on sun_windows to service_role;
