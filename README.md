@@ -1,16 +1,35 @@
-# React + Vite
+# Pint 🍺
+Find the sunniest beer garden near you — and know how long it'll stay that way.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What it does
+Pint shows you which nearby pubs with outdoor seating are currently sunny, 
+using real shadow modelling based on building heights and sun position — 
+not just whether it's cloudy.
 
-Currently, two official plugins are available:
+## Tech stack
+React · Vite · Leaflet.js · SunCalc.js · OpenStreetMap · Supabase · Vercel
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Status
+Currently in active development.
 
-## React Compiler
+## Prerequisites
+- Node.js 18+
+- A Supabase project (see `.env.example` for required variables)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Running locally
+```bash
+npm install
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-## Expanding the ESLint configuration
+## Environment variables
+Copy `.env.example` to `.env` and fill in your Supabase credentials:
+```bash
+cp .env.example .env
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project structure
+- `src/` — React frontend
+- `scripts/` — Node.js data ingestion scripts (OSM → Supabase)
+- `migrations/` — SQL schema migrations
